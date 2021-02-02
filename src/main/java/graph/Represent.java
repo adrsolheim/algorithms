@@ -57,14 +57,22 @@ public class Represent {
      *  The outer ArrayList represents the vertices
      *  The inner ArrayList represents each vertices' neighbouring vertices
      */
-    public ArrayList<ArrayList<Integer>> adjacencyList(int v, ArrayList<ArrayList<Integer>> input) {
-        ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<>(v);
+    public ArrayList<Integer>[] adjacencyList(int v, ArrayList<ArrayList<Integer>> input) {
+        ArrayList<Integer>[] adjacencyList = new ArrayList[v];
+        for (int i = 0; i < v; i++) {
+            adjacencyList[i] = new ArrayList<Integer>();
+            for (int j = 0; j < input.get(i).get(0); j++) {
+                adjacencyList[i].add(input.get(i).get(j+1));
+            }
+        }
+        /*ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<>(v);
         for (int i = 0; i < v; i++) {
             adjacencyList.add(new ArrayList<Integer>());
             for (int j = 0; j < input.get(i).get(0); j++) {
                 adjacencyList.get(i).add(input.get(i).get(j+1));
             }
         }
+        return adjacencyList;*/
         return adjacencyList;
     }
 
@@ -80,6 +88,11 @@ public class Represent {
             }
         }
         return edgeList;
+    }
+
+    public Node tree(int v, ArrayList<ArrayList<Integer>> input) {
+
+        return null;
     }
 
 

@@ -41,12 +41,12 @@ class RepresentTest {
 
     @Test
     void adjacencyList() {
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(new ArrayList<Integer>( Arrays.asList(1, 2)));
-        expected.add(new ArrayList<Integer>( Arrays.asList(0, 2)));
-        expected.add(new ArrayList<Integer>( Arrays.asList(0)));
+        ArrayList<Integer>[] expected = new ArrayList[numberOfVertices];
+        expected[0] = new ArrayList<Integer>( Arrays.asList(1, 2));
+        expected[1] = new ArrayList<Integer>( Arrays.asList(0, 2));
+        expected[2] = new ArrayList<Integer>( Arrays.asList(0));
 
-        assertEquals(expected, represent.adjacencyList(numberOfVertices, input));
+        assertArrayEquals(expected, represent.adjacencyList(numberOfVertices, input));
     }
 
     @Test
